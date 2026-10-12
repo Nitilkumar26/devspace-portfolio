@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nitil | Developer Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, #172554, transparent 40%),
+        radial-gradient(circle at bottom right, #3b0764, transparent 35%),
+        #080d1b;
+      color: #f8fafc;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8, 13, 27, 0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid #25304a;
+    }
+
+    .navbar {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: bold;
+      color: #60a5fa;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: #a78bfa;
+    }
+
+    section {
+      padding: 75px 0;
+      scroll-margin-top: 75px;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-content {
+      width: 100%;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 7px 15px;
+      border: 1px solid #334155;
+      border-radius: 30px;
+      color: #c4b5fd;
+      background: #111827;
+      margin-bottom: 22px;
+      font-size: 13px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 8vw, 66px);
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .highlight {
+      background: linear-gradient(90deg, #60a5fa, #c084fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: #aab5ca;
+      max-width: 600px;
+      margin: 0 auto 28px;
+      font-size: 17px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      border: 1px solid #475569;
+      transition: 0.25s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #2563eb, #7c3aed);
+      border: none;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 22px #6366f180;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #94a3b8;
+      margin-bottom: 35px;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.78);
+      border: 1px solid #334155;
+      border-radius: 18px;
+      padding: 25px;
+      transition: 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #818cf8;
+      box-shadow: 0 10px 35px #312e811c;
+    }
+
+    .about-text {
+      color: #cbd5e1;
+      font-size: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .skill {
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: 1px solid #334155;
+      background: #111827;
+      color: #c4b5fd;
+    }
+
+    .project-icon {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: #aab5ca;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .project-link {
+      color: #93c5fd;
+      font-weight: bold;
+    }
+
+    .contact-card {
+      text-align: center;
+    }
+
+    .contact-card p {
+      color: #aab5ca;
+      margin: 12px 0 22px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 10px;
+      border-top: 1px solid #25304a;
+      color: #94a3b8;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 12px 0;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 75vh;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container navbar">
+      <a class="logo" href="#home">Nitil.dev</a>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <span class="tag">Welcome to my portfolio</span>
+
+        <h1>
+          Hi, I'm <span class="highlight">Nitil</span>
+        </h1>
+
+        <h2>First-Year Computer Science Student</h2>
+
+        <p>
+          I am learning programming, solving coding problems,
+          and building projects step by step.
+        </p>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="#projects">
+            Explore Projects
+          </a>
+
+          <a class="btn" href="#about">
+            About Me
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">
+          About <span class="highlight">Me</span>
+        </h2>
+
+        <p class="section-subtitle">A little about my journey</p>
+
+        <div class="card">
+          <p class="about-text">
+            Hello! I am Nitil, a first-year B.Tech Computer Science
+            student at Vivekanand Global University, Jaipur.
+            I am currently learning C programming, Java, Linux,
+            and web development. My goal is to improve my coding
+            skills and build useful projects through practice.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">
+          My <span class="highlight">Skills</span>
+        </h2>
+
+        <p class="section-subtitle">
+          Technologies I am learning
+        </p>
+
+        <div class="skills">
+          <span class="skill">C Programming</span>
+          <span class="skill">Java Basics</span>
+          <span class="skill">Linux Commands</span>
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">Problem Solving</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">
+          My <span class="highlight">Projects</span>
+        </h2>
+
+        <p class="section-subtitle">
+          Things I have worked on
+        </p>
+
+        <div class="grid">
+
+          <div class="card project-card">
+            <div class="project-icon">📋</div>
+            <h3>Student Task Manager</h3>
+            <p>
+              A beginner C project to add tasks, view tasks,
+              and mark tasks as complete using a menu.
+            </p>
+            <a class="project-link" href="#contact">
+              View Project Details →
+            </a>
+          </div>
+
+          <div class="card project-card">
+            <div class="project-icon">💻</div>
+            <h3>LeetCode Solutions</h3>
+            <p>
+              My coding practice repository with solutions
+              to programming problems.
+            </p>
+            <a class="project-link" href="#contact">
+              View Project Details →
+            </a>
+          </div>
+
+          <div class="card project-card">
+            <div class="project-icon">🌐</div>
+            <h3>My Portfolio</h3>
+            <p>
+              My personal website built with HTML and CSS
+              to present my skills and projects.
+            </p>
+            <a class="project-link" href="#home">
+              Back to Home ↑
+            </a>
+          </div>
+
+          <div class="card project-card">
+            <div class="project-icon">🚀</div>
+            <h3>Future Project</h3>
+            <p>
+              I am learning new concepts and plan to build
+              more projects as my skills improve.
+            </p>
+            <span class="project-link">Coming Soon</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">
+          Contact <span class="highlight">Me</span>
+        </h2>
+
+        <p class="section-subtitle">
+          Let's connect and learn together
+        </p>
+
+        <div class="card contact-card">
+          <h3>Have a project idea?</h3>
+          <p>
+            Feel free to connect with me through email or GitHub.
+          </p>
+
+          <div class="buttons">
+            <a class="btn btn-primary"
+               href="mailto:nitilgupta652@gmail.com">
+              Email Me
+            </a>
+
+            <a class="btn"
+               href="https://github.com/"
+               target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Nitil.dev | Built with HTML & CSS</p>
+    <p>Learning • Building • Improving</p>
+  </footer>
+
+</body>
+</html>
